@@ -58,11 +58,10 @@ angular.module('core').config([
 ]);'use strict';
 angular.module('core').controller('HeaderController', [
   '$scope',
-  'Authentication',
   'Menus',
-  function ($scope, Authentication, Menus) {
-    $scope.authentication = Authentication;
+  function ($scope, Menus) {
     $scope.isCollapsed = false;
+    Menus.addMenuItem('topbar', 'Create Test', 'createtest');
     $scope.menu = Menus.getMenu('topbar');
     $scope.toggleCollapsibleMenu = function () {
       $scope.isCollapsed = !$scope.isCollapsed;
@@ -75,10 +74,8 @@ angular.module('core').controller('HeaderController', [
 ]);'use strict';
 angular.module('core').controller('HomeController', [
   '$scope',
-  'Authentication',
-  function ($scope, Authentication) {
-    // This provides Authentication context.
-    $scope.authentication = Authentication;
+  function ($scope) {
+    $scope.name = 'Visual APp Home';
   }
 ]);'use strict';
 //Menu service used for managing  menus
